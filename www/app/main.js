@@ -12,11 +12,14 @@ define(function (require) {
     // full IDs, like:
     var print = require('print');
     var render = require('render');
-    var answerListener = require('answerListener');
 
     // print(messages.getHello());
     render(setup, 'app');
-    answerListener.getListener(document.getElementById("answer-button"));
 
     render(question.getQuestion(settings), 'question');
+    var correctAnswer = question.getCorrectAnswer();
+    var answer = require('answer');
+    answer.getListener(document.getElementById("answer-button"), correctAnswer, render);
+
+
 });

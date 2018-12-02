@@ -1,6 +1,5 @@
 define (function () {
   var answer;
-  var correctAnswer;
 
   var validateAnswer = function (answer) {
     if (typeof(parseInt(answer)) !== 'number') {
@@ -14,8 +13,9 @@ define (function () {
     }
   };
 
-  var checkCorrect = function (answer, correctAnswer) {
-    if (parseInt(answer) == correctAnswer) {
+  var checkCorrect = function (candidateValue, correctAnswer) {
+
+    if (parseInt(candidateValue) == correctAnswer) {
       return 'Correct!';
     }
     else {
@@ -30,22 +30,18 @@ define (function () {
   return {
     getCorrectAnswer: function() {},
     setCorrectAnswer: function() {},
-    getListener: function (elem, correctAnswer, render) {
-      // @todo correctAnswer needs to get passed to the validator
-      elem.addEventListener("click", function(e) {
-        e.preventDefault();
-        // @todo send back something to trigger submission.
-        var answer = document.getElementById('answer-input').value;
-        var checkValid = validateAnswer(answer);
-        if (checkValid != 'valid') {
-          return check;
-        }
-        var isCorrect = checkCorrect(answer, correctAnswer);
-        if (isCorrect) {
-          render(isCorrect, 'messages')
-          return isCorrect;
-        }
-      });
+    checkAnswer: function (question, render) {
+      var candidateValue = document.getElementById('answer-input').value;
+      var checkValid = validateAnswer(candidateValue);
+      if (checkValid != 'valid') {
+        render('That is not a number!', 'messages');
+        return;
+      }
+      var isCorrect = checkCorrect(candidateValue, question.getCorrectAnswer());
+      if (isCorrect) {
+        render(isCorrect, 'messages')
+        return isCorrect;
+      }
     }
   }
 });

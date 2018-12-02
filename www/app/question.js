@@ -1,6 +1,9 @@
 define(function () {
   var correctAnswer;
   var questionString;
+  var a;
+  var b;
+  var op;
 
   function setCorrectAnswer(x) {
     correctAnswer = x;
@@ -11,13 +14,12 @@ define(function () {
     getCorrectAnswer: function() {
       return correctAnswer;
     },
-    setCorrectAnswer: setCorrectAnswer,
     getQuestion: function ($settings) {
-      var a = this.getNumber();
-      var b = this.getNumber();
-      var op = this.getOp($settings);
+      a = this.getNumber();
+      b = this.getNumber();
+      op = this.getOp($settings);
       questionString = a + ' ' + op + ' ' + b;
-      this.setCorrectAnswer(eval(questionString));
+      setCorrectAnswer(eval(questionString));
       return '<span class="question">' + questionString + ' = ?</span>';
     },
     getNumber: function () {

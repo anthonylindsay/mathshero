@@ -30,6 +30,11 @@ define(function () {
     getOp: function ($settings) {
       // @todo use settings;
       return '+';
+    },
+    clearInput: function () {
+      var input = document.getElementById('answer-input');
+      input.value = '';
+      input.focus();
     }
   };
 });

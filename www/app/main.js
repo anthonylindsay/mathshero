@@ -24,7 +24,6 @@ define(function (require) {
     // Instantiate new answer.
     answer = new require('answer', e);
     var correctAnswer = question.getCorrectAnswer();
-    console.log('fire');
     // Check answer.
     answer.checkAnswer(question, render);
     // Refresh question.
@@ -37,5 +36,6 @@ define(function (require) {
   function refreshQuestion() {
     question = new require('./question');
     render(question.getQuestion(settings), 'question');
+    question.clearInput();
   }
 });

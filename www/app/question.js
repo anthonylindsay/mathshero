@@ -14,10 +14,10 @@ define(function () {
     getCorrectAnswer: function() {
       return correctAnswer;
     },
-    getQuestion: function ($settings) {
+    getQuestion: function (settings) {
       a = this.getNumber();
       b = this.getNumber();
-      op = this.getOp($settings);
+      op = this.getOp(settings);
       questionString = a + ' ' + op + ' ' + b;
       setCorrectAnswer(eval(questionString));
       return '<span class="question">' + questionString + ' = ?</span>';
@@ -27,9 +27,16 @@ define(function () {
       var max = 12;
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
-    getOp: function ($settings) {
+    getOp: function (settings) {
       // @todo use settings;
-      return '+';
+      var ops = settings.getSettings();
+      var chosenOps = [];
+      Object.keys(ops).forEach(function(key) {
+        if (ops[key] == 1) {
+          chosenOps.push(key);
+        }
+      });
+      return chosenOps[Math.floor(Math.random() * chosenOps.length)];;
     },
     clearInput: function () {
       var input = document.getElementById('answer-input');

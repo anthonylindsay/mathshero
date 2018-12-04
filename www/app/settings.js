@@ -5,7 +5,6 @@ define(function () {
     '-' : 1,
     '*' : 0,
     '/' : 0,
-    'random' : 0,
   };
   // These map the settings to what is displayed.
   var mapping = {

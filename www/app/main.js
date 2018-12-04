@@ -6,7 +6,6 @@ define(function (require) {
   var settings = require('./settings');
   var setup = require('./setup');
 
-
   // Load library/vendor modules using
   // full IDs, like:
   var render = require('render');
@@ -15,6 +14,7 @@ define(function (require) {
 
   // setup does initial html.
   render(setup, 'app');
+  render(settings.getHTML(), 'settings');
   // Instantiates a question.
   refreshQuestion();
   // and registers a listener.
@@ -29,6 +29,9 @@ define(function (require) {
     // Refresh question.
     refreshQuestion();
   });
+
+  // Register listener for saving settings.
+  // @todo
 
   /**
    * Instantiates a new question and gets it rendered.

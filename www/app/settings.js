@@ -22,11 +22,6 @@ define(function () {
   html += '</div>';
 
   return {
-    getSettings: function () {
-      return {
-        'random' : 1,
-      };
-    },
     getHTML: function () {
       return html;
     },

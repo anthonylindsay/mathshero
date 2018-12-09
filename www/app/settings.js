@@ -31,7 +31,32 @@ define(function () {
     getMapping: function () {
       return mapping;
     },
-
+    save: function () {
+      // Get values of checkboxes.
+      var gameSettings = {};
+      var settingsFormElements = document.querySelectorAll('.form-item input');
+      settingsFormElements.forEach(function (element) {
+        if (element.checked) {
+          ops[element.value] = 1;
+        }
+        else {
+          ops[element.value] = 0;
+        }
+      });
+      localStorage.setItem('mathsHeroSettings', JSON.stringify(ops));
+    },
+    load: function () {
+      if ((typeof localStorage.getItem(key) != undefined) && (localStorage.getItem(key) != null) && (localStorage.getItem(key) != "null") && (localStorage.getItem(key) != "")) {
+        var loadedSettings = JSON.parse(localStorage.getItem('mathsHeroSettings'));
+        this.ops = loadedSettings;
+        return loadedSettings;
+      }
+      else return false;
+    },
+    setUIValues: function () {
+      var settingsFormElements = document.querySelectorAll('.form-item input');
+      console.log(settingsFormElements);
+    },
     getSettings: function () {
       return ops;
     }

@@ -10,11 +10,18 @@ define(function (require) {
   // full IDs, like:
   var render = require('render');
   var answer = require('answer');
-
+  var json = require('json2');
 
   // setup does initial html.
   render(setup, 'app');
   render(settings.getHTML(), 'settings');
+
+  var settingsFormElements = document.querySelectorAll('.form-item input');
+  settingsFormElements.forEach(function (element) {
+    element.addEventListener('change', function(e) {
+      settings.save();
+    });
+  });
   // Instantiates a question.
   refreshQuestion();
   // and registers a listener.

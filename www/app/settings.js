@@ -46,16 +46,24 @@ define(function () {
       localStorage.setItem('mathsHeroSettings', JSON.stringify(ops));
     },
     load: function () {
-      if ((typeof localStorage.getItem(key) != undefined) && (localStorage.getItem(key) != null) && (localStorage.getItem(key) != "null") && (localStorage.getItem(key) != "")) {
+      if ((typeof localStorage.getItem('mathsHeroSettings') != undefined) && (localStorage.getItem('mathsHeroSettings') != null) && (localStorage.getItem('mathsHeroSettings') != "null") && (localStorage.getItem('mathsHeroSettings') != "")) {
         var loadedSettings = JSON.parse(localStorage.getItem('mathsHeroSettings'));
-        this.ops = loadedSettings;
+        ops = loadedSettings;
         return loadedSettings;
       }
       else return false;
     },
     setUIValues: function () {
+      this.load();
       var settingsFormElements = document.querySelectorAll('.form-item input');
-      console.log(settingsFormElements);
+      settingsFormElements.forEach(function (element) {
+        if (ops[element.value] == 1) {
+          element.checked = true;
+        }
+        else {
+          element.checked = false;
+        }
+      });
     },
     getSettings: function () {
       return ops;

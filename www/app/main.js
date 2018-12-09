@@ -15,6 +15,7 @@ define(function (require) {
   // setup does initial html.
   render(setup, 'app');
   render(settings.getHTML(), 'settings');
+  settings.setUIValues();
 
   var settingsFormElements = document.querySelectorAll('.form-item input');
   settingsFormElements.forEach(function (element) {

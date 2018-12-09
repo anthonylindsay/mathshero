@@ -28,7 +28,6 @@ define(function () {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     getOp: function (settings) {
-      // @todo use settings;
       var ops = settings.getSettings();
       var chosenOps = [];
       Object.keys(ops).forEach(function(key) {

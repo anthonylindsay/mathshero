@@ -15,15 +15,35 @@ define(function () {
       return correctAnswer;
     },
     getQuestion: function (settings) {
-      a = this.getNumber();
-      b = this.getNumber();
       op = this.getOp(settings);
-      questionString = a + ' ' + op + ' ' + b;
-      setCorrectAnswer(eval(questionString));
+      a = this.getNumber(op);
+      b = this.getNumber(op);
+      if (op == '+' || op == '*') {
+        questionString = a + ' ' + op + ' ' + b;
+        setCorrectAnswer(eval(questionString));
+      }
+      else if (op == '-') {
+        if (a > b) {
+          questionString = a + ' ' + op + ' ' + b;
+        }
+        else {
+          questionString = b + ' ' + op + ' ' + a;
+        }
+        setCorrectAnswer(eval(questionString));
+      }
+      // Division.
+      else {
+        var product = a * b;
+        questionString = product + ' &#247; ' + a;
+        setCorrectAnswer(b);
+      }
       return '<span class="question">' + questionString + ' = ?</span>';
     },
-    getNumber: function () {
+    getNumber: function (op) {
       var min = 0;
+      if (op == '/') {
+        min = 1;
+      }
       var max = 12;
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },

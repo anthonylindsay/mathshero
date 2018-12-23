@@ -35,7 +35,7 @@ define(function () {
       // Get values of checkboxes.
       var gameSettings = {};
       var settingsFormElements = document.querySelectorAll('.form-item input');
-      settingsFormElements.forEach(function (element) {
+      [].forEach.call(settingsFormElements,function (element) {
         if (element.checked) {
           ops[element.value] = 1;
         }

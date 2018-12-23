@@ -18,7 +18,7 @@ define(function (require) {
   settings.setUIValues();
 
   var settingsFormElements = document.querySelectorAll('.form-item input');
-  settingsFormElements.forEach(function (element) {
+  [].forEach.call(settingsFormElements, function (element) {
     element.addEventListener('change', function(e) {
       settings.save();
     });

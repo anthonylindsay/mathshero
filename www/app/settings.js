@@ -56,7 +56,7 @@ define(function () {
     setUIValues: function () {
       this.load();
       var settingsFormElements = document.querySelectorAll('.form-item input');
-      settingsFormElements.forEach(function (element) {
+      [].forEach.call(settingsFormElements, function (element) {
         if (ops[element.value] == 1) {
           element.checked = true;
         }

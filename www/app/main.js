@@ -5,6 +5,7 @@ define(function (require) {
   var messages = require('./messages');
   var settings = require('./settings');
   var setup = require('./setup');
+  var numberPad = require('./numberpad');
 
   // Load library/vendor modules using
   // full IDs, like:
@@ -12,10 +13,13 @@ define(function (require) {
   var answer = require('answer');
   var json = require('json2');
 
-  // setup does initial html.
+  // Setup does initial html.
   render(setup, 'app');
   render(settings.getHTML(), 'settings');
   settings.setUIValues();
+  // Make number pad work.
+
+  numberPad.ui();
 
   var settingsFormElements = document.querySelectorAll('.form-item input');
   [].forEach.call(settingsFormElements, function (element) {
@@ -38,8 +42,6 @@ define(function (require) {
     refreshQuestion();
   });
 
-  // Register listener for saving settings.
-  // @todo
 
   /**
    * Instantiates a new question and gets it rendered.

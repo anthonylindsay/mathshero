@@ -1,0 +1,10 @@
+	.number-button {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    border: 1px solid #FFFFFF;
+    margin-right: 2%;
+    margin-left: 2%;
+    font-size: 2em;
+  }

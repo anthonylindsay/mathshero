@@ -1,6 +1,9 @@
+// Origin is the server root - e.g. htdocs. Only change it if
+// served from a subdirectory, not a vhost.
+var origin = '/';
 // Make it offline capable.
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/apps/maths/www/app/sw.js')
+  navigator.serviceWorker.register(origin + 'www/app/sw.js')
   .then(function(reg) {
     if(reg.installing) {
       console.log('Service worker installing');

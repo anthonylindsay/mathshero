@@ -4,21 +4,21 @@ self.addEventListener('install', function(event) {
       console.log('add to cache');
       return cache.addAll(
         [
-          '/apps/maths/www/css/styles.css',
-          '/apps/maths/www/app/main.js',
-          '/apps/maths/www/app/messages.js',
-          '/apps/maths/www/app/numberpad.js',
-          '/apps/maths/www/app/question.js',
-          '/apps/maths/www/app/settings.js',
-          '/apps/maths/www/app/setup.js',
-          '/apps/maths/www/lib/answer.js',
-          '/apps/maths/www/lib/json2.js',
-          '/apps/maths/www/lib/plugins.js',
-          '/apps/maths/www/lib/print.js',
-          '/apps/maths/www/lib/render.js',
-          '/apps/maths/www/lib/require.js',
-          '/apps/maths/www/app.js',
-          '/apps/maths/www/index.html',
+          '/www/css/styles.css',
+          '/www/app/main.js',
+          '/www/app/messages.js',
+          '/www/app/numberpad.js',
+          '/www/app/question.js',
+          '/www/app/settings.js',
+          '/www/app/setup.js',
+          '/www/lib/answer.js',
+          '/www/lib/json2.js',
+          '/www/lib/plugins.js',
+          '/www/lib/print.js',
+          '/www/lib/render.js',
+          '/www/lib/require.js',
+          '/www/app.js',
+          '/www/index.html',
         ]
       );
     })

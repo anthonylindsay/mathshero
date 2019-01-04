@@ -1,6 +1,6 @@
 // Make it offline capable.
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/www/app/sw.js')
+  navigator.serviceWorker.register('/mathshero/www/app/sw.js')
   .then(function(reg) {
     if (reg.installing) {
       console.log('Service worker installing');

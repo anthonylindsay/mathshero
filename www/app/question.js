@@ -15,9 +15,11 @@ define(function () {
       return correctAnswer;
     },
     getQuestion: function (settings) {
-      op = this.getOp(settings);
-      a = this.getNumber(op);
-      b = this.getNumber(op);
+      var op = this.getOp(settings);
+      var a = this.getNumber(op);
+      var b = this.getNumber(op);
+      var mapping = settings.getMapping();
+      var questionString = '';
       if (op == '+' || op == '*') {
         questionString = a + ' ' + op + ' ' + b;
         setCorrectAnswer(eval(questionString));
@@ -37,6 +39,7 @@ define(function () {
         questionString = product + ' &#247; ' + a;
         setCorrectAnswer(b);
       }
+      questionString = questionString.replace(op, mapping[op]);
       return '<span class="question">' + questionString + ' = ?</span>';
     },
     getNumber: function (op) {

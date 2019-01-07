@@ -13,12 +13,14 @@ define (function () {
     }
   };
 
-  var checkCorrect = function (candidateValue, correctAnswer) {
+  var checkCorrect = function (candidateValue, correctAnswer, scoreTracker) {
 
     if (parseInt(candidateValue) == correctAnswer) {
+      scoreTracker.incrementCorrect();
       return 'Correct!';
     }
     else {
+      scoreTracker.incrementIncorrect();
       return 'Wrong!';
     }
   }
@@ -30,14 +32,14 @@ define (function () {
   return {
     getCorrectAnswer: function() {},
     setCorrectAnswer: function() {},
-    checkAnswer: function (question, render) {
+    checkAnswer: function (question, render, scoreTracker) {
       var candidateValue = document.getElementById('answer-input').value;
       var checkValid = validateAnswer(candidateValue);
       if (checkValid != 'valid') {
         render('That is not a number!', 'messages');
         return;
       }
-      var isCorrect = checkCorrect(candidateValue, question.getCorrectAnswer());
+      var isCorrect = checkCorrect(candidateValue, question.getCorrectAnswer(), scoreTracker);
       if (isCorrect) {
         render(isCorrect, 'messages')
         return isCorrect;

@@ -6,6 +6,7 @@ define(function (require) {
   var settings = require('./settings');
   var setup = require('./setup');
   var numberPad = require('./numberpad');
+  var scoreTracker = require('./score');
 
   // Load library/vendor modules using
   // full IDs, like:
@@ -37,7 +38,8 @@ define(function (require) {
     answer = new require('answer', e);
     var correctAnswer = question.getCorrectAnswer();
     // Check answer.
-    answer.checkAnswer(question, render);
+    answer.checkAnswer(question, render, scoreTracker);
+    scoreTracker.printScore(render);
     // Refresh question.
     refreshQuestion();
   });
@@ -52,3 +54,7 @@ define(function (require) {
     question.clearInput();
   }
 });
+
+// TODO: timer
+// TODO: tables selection
+// TODO: style

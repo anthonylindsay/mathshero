@@ -8,6 +8,7 @@ app/numberpad.js
 app/question.js
 app/settings.js
 app/setup.js
+app/score.js
 lib/answer.js
 lib/json2.js
 lib/plugins.js

@@ -11,6 +11,7 @@ self.addEventListener('install', function(event) {
           '/mathshero/www/app/question.js',
           '/mathshero/www/app/settings.js',
           '/mathshero/www/app/setup.js',
+          '/mathshero/www/app/score.js',
           '/mathshero/www/lib/answer.js',
           '/mathshero/www/lib/json2.js',
           '/mathshero/www/lib/plugins.js',

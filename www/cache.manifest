@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# v1.02 - 2019-01-07
+
+css/styles.css
+app/main.js
+app/messages.js
+app/numberpad.js
+app/question.js
+app/settings.js
+app/setup.js
+lib/answer.js
+lib/json2.js
+lib/plugins.js
+lib/print.js
+lib/render.js
+lib/require.js
+app.js
+index.html

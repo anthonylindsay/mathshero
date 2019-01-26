@@ -21,4 +21,6 @@ define(function () {
   };
 });
 
-// TODO: persistent stats;
+// TODO: persistent stats.
+// average right, average wrong, total right, total wrong,
+// top score within session etc

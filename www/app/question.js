@@ -46,7 +46,7 @@ define(function () {
       return '<span class="question">' + questionString + ' = ?</span>';
     },
     // Returns a random number from the chosen range.
-    getNumber: function (op, tables = null) {
+    getNumber: function (op, tables) {
       if (tables) {
         return tables[Math.floor(Math.random() * tables.length)];
       }

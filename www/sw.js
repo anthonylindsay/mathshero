@@ -20,6 +20,7 @@ self.addEventListener('install', function(event) {
           '/mathshero/www/lib/require.js',
           '/mathshero/www/app.js',
           '/mathshero/www/index.html',
+          '/mathshero/www/favicon.ico',
         ]
       );
     })

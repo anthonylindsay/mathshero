@@ -19,9 +19,10 @@ define(function (require) {
   render(settings.getHTML(), 'settings');
   settings.setUIValues();
   // Make number pad work.
-
   numberPad.ui();
-
+  if (!settings.load()) {
+    settings.save();
+  }
   var settingsFormElements = document.querySelectorAll('.form-item input');
   [].forEach.call(settingsFormElements, function (element) {
     element.addEventListener('change', function(e) {

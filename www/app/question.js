@@ -83,8 +83,7 @@ define(function () {
     },
     clearInput: function () {
       var input = document.getElementById('answer-input');
-      input.value = '';
-      input.focus();
+      input.innerHTML = '';
     }
   };
 });

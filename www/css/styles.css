@@ -10,6 +10,9 @@
     text-align: center;
     vertical-align: middle;
 }
+.number-button:active {
+	background: white;
+}
 
 body {
   background: #ddd;
@@ -17,4 +20,15 @@ body {
 
 .score {
   font-weight: bold;
+}
+#answer-input {
+	border: 1px solid #6d6d6d;
+	background: white;
+	width: 8em;
+	font-size: 2em;
+	line-height: 2em;
+}
+.question {
+	font-size: 2em;
+	line-height: 2em;
 }

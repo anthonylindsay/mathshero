@@ -15,9 +15,14 @@ define(function () {
   };
   // Settings UI
   var html = '<div id="settings-form"><h2>Settings</h2><form>';
+  html += '<h3>Operations</h3>';
   Object.keys(mapping).forEach(function(key) {
     html += '<div class="form-item" ><input type="checkbox" name="ops" value="' + key + '"> ' + mapping[key] + '</div>';
   });
+  html += '<h3>Tables</h3>';
+  for (var i = 1; i <= 12; i++) {
+    html += '<div class="form-item" ><input type="checkbox" name="tables" value="' + i + '"> ' + i + '</div>';
+  }
   html += '</div>';
 
   return {

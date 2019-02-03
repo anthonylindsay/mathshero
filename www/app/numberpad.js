@@ -11,11 +11,15 @@ define(function () {
           if (isNumeric(value)) {
             // Add to input.
             var input = document.querySelector('#answer-input');
-            var inputValue = input.value;
+            var inputValue = input.innerHTML;
             inputValue += value + "";
-            input.value = inputValue;
+            input.innerHTML = inputValue;
           }
         });
+      });
+      var deleteButton = document.querySelector('#delete-button');
+      deleteButton.addEventListener('click', function(e) {
+        document.querySelector('#answer-input').innerHTML = '';
       });
     }
   }

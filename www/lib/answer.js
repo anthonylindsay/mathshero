@@ -33,7 +33,7 @@ define (function () {
     getCorrectAnswer: function() {},
     setCorrectAnswer: function() {},
     checkAnswer: function (question, render, scoreTracker) {
-      var candidateValue = document.getElementById('answer-input').value;
+      var candidateValue = document.getElementById('answer-input').innerHTML;
       var checkValid = validateAnswer(candidateValue);
       if (checkValid != 'valid') {
         render('That is not a number!', 'messages');

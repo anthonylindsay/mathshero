@@ -11,9 +11,10 @@ define(function () {
           if (isNumeric(value)) {
             // Add to input.
             var input = document.querySelector('#answer-input');
-            var inputValue = input.innerHTML;
-            inputValue += value + "";
-            input.innerHTML = inputValue;
+            var inputValue = input.innerHTML.trim();
+            inputValue = inputValue.trim();
+            inputValue = inputValue.concat(value);
+            input.innerHTML = inputValue.replace(/[^\d.-]/g, '');
           }
         });
       });
